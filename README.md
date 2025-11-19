@@ -1,17 +1,11 @@
-👋 Hey I'm Mark!
+👋 Hey I'm Mark
+Building projects at the intersection of machine learning, math, and computer science. After 7+ years managing tech projects, I realized I was more interested in building the models than coordinating the teams.
 
-I’m a Data Scientist / Machine Learning Engineer with 7 + years of experience turning messy data into actionable insights and production‑ready ML solutions. I blend deep technical expertise (Python, Cloud, MLOps) with strong product‑management skills. Currently I’m sharpening my research skills while completing an MSc in Data Science (AI) at the University of London.
+🎓 Pursuing MSc Data Science at University of London, focusing on artificial intelligence.
+🧮 Exploring how measure theory, stochastic processes, and optimization theory connect statistical modeling with machine learning architectures.
+⚛️ Fascinated by quantum computing and its potential applications to optimization problems in machine learning and cybersecurity.
 
-💡Interests
+I transitioned from project management to data science because I wanted to work directly with the math. Now I spend my time building systems and studying theory in equal measure.
+Open to conversations about DS/ML systems, quantitative methods, or interesting problems at the intersection of math and computation. 
 
-Math, Stats, Machine Learning, Data Science, AI, Quntitative Finance, Quantum Computing. 
-
-🎓 Education & Certifications
-
-- MSc Data Science (AI) – University of London
-- Machine Learning Certificate – University of Toronto, Data Science Institute 
-- Project Management Professional (PMP) – PMI
-
-📫 Get in Touch
-
-Check out the sidebar.
+Reach me via email or LinkedIn.
