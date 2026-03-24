@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Mark Kuriy</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Mark Kuriy's portfolio.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dark-mode.css" media="(prefers-color-scheme: dark)">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            line-height: 1.6;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .error-shell {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .error-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.16), transparent 38%),
+                radial-gradient(circle at 82% 8%, rgba(194, 157, 88, 0.16), transparent 32%),
+                linear-gradient(145deg, rgba(30, 58, 138, 0.06), rgba(250, 250, 251, 0));
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+        }
+
+        .error-main {
+            position: relative;
+            z-index: 1;
+            padding-top: 120px;
+            padding-bottom: var(--space-2xl);
+        }
+
+        .error-panel {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: var(--space-2xl);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            background: var(--bg-white);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: clamp(4rem, 12vw, 8rem);
+            line-height: 0.95;
+            margin-bottom: var(--space-sm);
+            letter-spacing: -0.03em;
+            color: var(--primary-600);
+        }
+
+        .error-title {
+            margin-bottom: var(--space-sm);
+        }
+
+        .error-copy {
+            max-width: 58ch;
+            margin: 0 auto var(--space-xl);
+            color: var(--text-secondary);
+        }
+
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .helpful-links {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-sm);
+            text-align: left;
+        }
+
+        .helpful-link-card {
+            display: block;
+            padding: var(--space-md);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            background: var(--bg-tertiary);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .helpful-link-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-brand);
+            box-shadow: 0 10px 24px rgba(30, 58, 138, 0.12);
+        }
+
+        .helpful-link-card strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            color: var(--text-primary);
+        }
+
+        .helpful-link-card span {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
+        @media (max-width: 900px) {
+            .helpful-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .error-main {
+                padding-top: 100px;
+            }
+
+            .error-panel {
+                padding: var(--space-lg);
+                border-radius: 14px;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="error-shell">
+        <nav class="nav">
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="nav-logo serif">Mark Kuriy</a>
+
+                    <ul class="nav-links">
+                        <li><a href="index.html#about" class="nav-link">About</a></li>
+                        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                        <li><a href="projects.html" class="nav-link">Projects</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+
+                    <div class="flex items-center">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                            </svg>
+                            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+
+                        <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="mobile-menu-container">
+            <ul class="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <main id="main-content" class="error-main">
+            <div class="container">
+                <section class="error-panel">
+                    <p class="text-sm text-secondary mb-sm">That route does not exist yet.</p>
+                    <h1 class="error-code serif">404</h1>
+                    <h2 class="text-3xl serif error-title">Wrong pass, right team.</h2>
+                    <p class="text-lg error-copy">
+                        The page you requested could not be found. Use one of the shortcuts below to jump back into projects, case studies, or the main portfolio.
+                    </p>
+
+                    <div class="quick-actions">
+                        <a href="index.html" class="btn btn-accent">Return Home</a>
+                        <a href="projects.html" class="btn btn-outline">Browse Projects</a>
+                    </div>
+
+                    <div class="helpful-links" aria-label="Helpful destinations">
+                        <a class="helpful-link-card" href="project-case-study.html">
+                            <strong>Latest Case Study</strong>
+                            <span>NBA analytics pipeline deep dive</span>
+                        </a>
+                        <a class="helpful-link-card" href="index.html#skills">
+                            <strong>Core Skills</strong>
+                            <span>ML stack, analytics, product strategy</span>
+                        </a>
+                        <a class="helpful-link-card" href="index.html#contact">
+                            <strong>Get In Touch</strong>
+                            <span>Let's build something data-driven</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dark-mode.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
+</body>
+</html>

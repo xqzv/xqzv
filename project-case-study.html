@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Team Performance Analytics | Case Study</title>
+    <meta name="description" content="Case study: NBA Team Performance Analytics & ML Pipeline with K-means clustering, PCA, and automated feature engineering.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Crimson+Pro:wght@300..600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dark-mode.css" media="(prefers-color-scheme: dark)">
+
+    <style>
+        .case-hero {
+            padding-top: 130px;
+            padding-bottom: var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.18), transparent 42%),
+                radial-gradient(circle at 85% 0%, rgba(194, 157, 88, 0.14), transparent 38%),
+                linear-gradient(140deg, rgba(37, 99, 235, 0.06), rgba(249, 250, 251, 0));
+            pointer-events: none;
+        }
+
+        .case-hero-content,
+        .case-main {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--primary-600);
+            border: 1px solid rgba(30, 58, 138, 0.2);
+            border-radius: 999px;
+            padding: 0.4rem 0.9rem;
+            font-weight: 600;
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .metric-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: var(--space-md);
+        }
+
+        .metric-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .metric-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--primary-600);
+        }
+
+        .case-main {
+            display: grid;
+            grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        .case-section {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .case-section h2 {
+            margin-bottom: var(--space-sm);
+        }
+
+        .case-section p + p {
+            margin-top: var(--space-sm);
+        }
+
+        .goal-list {
+            margin-top: var(--space-sm);
+            padding-left: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .goal-list li + li {
+            margin-top: 0.35rem;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
+        }
+
+        .method-shot {
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--bg-tertiary);
+        }
+
+        .method-shot img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+        }
+
+        .shot-caption {
+            padding: 0.85rem 1rem;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .hub-card {
+            position: sticky;
+            top: 96px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: var(--space-lg);
+        }
+
+        .hub-title {
+            margin-bottom: var(--space-sm);
+        }
+
+        .hub-links {
+            display: grid;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .hub-link {
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .takeaway-list {
+            margin-top: var(--space-sm);
+            padding-left: 1.1rem;
+        }
+
+        .takeaway-list li + li {
+            margin-top: 0.5rem;
+        }
+
+        .case-footer-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        @media (max-width: 992px) {
+            .case-main {
+                grid-template-columns: 1fr;
+            }
+
+            .hub-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-section {
+                padding: var(--space-lg);
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo serif">Mark Kuriy</a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu-container">
+        <ul class="nav-links">
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="projects.html" class="nav-link active">Projects</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <main id="main-content">
+        <section class="case-hero">
+            <div class="container case-hero-content">
+                <a href="projects.html" class="btn btn-outline">Back to Projects</a>
+                <div class="project-kicker mt-md">Case Study | Machine Learning</div>
+                <h1 class="text-5xl serif mb-md">NBA Team Performance Analytics & ML Pipeline</h1>
+                <p class="text-xl text-secondary">
+                    This project turns 300K+ NBA game records into interpretable team-performance archetypes using K-means clustering and PCA. The stack combines robust scraping, feature engineering, and unsupervised learning to surface patterns that correlate with postseason success. The final output is a reproducible analytics workflow that supports coaching strategy and front-office decision-making.
+                </p>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">Data Volume</span>
+                        <span class="metric-value">300K+ games</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Core Methods</span>
+                        <span class="metric-value">K-means + PCA</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-label">Pipeline</span>
+                        <span class="metric-value">Checkpointed ETL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 0;">
+            <div class="container case-main">
+                <div>
+                    <article class="case-section">
+                        <h2 class="text-3xl serif">The Goal</h2>
+                        <p class="text-lg text-secondary">I built this to test whether PCA-reduced feature spaces can predict playoff-level team profiles more clearly than raw box score dimensions alone.</p>
+                        <ul class="goal-list text-lg">
+                            <li>Identify interpretable team archetypes that coaches and analysts can actually use.</li>
+                            <li>Compare raw-stat clustering versus PCA-space clustering for stability and separation.</li>
+                            <li>Create a repeatable workflow that can be refreshed each season with minimal manual effort.</li>
+                        </ul>
+                    </article>
+
+                    <article class="case-section">
+                        <h2 class="text-3xl serif">Data & Methods</h2>
+                        <p class="text-lg text-secondary">These visuals show the modeling stages stakeholders care about most: feature compression, cluster behavior, and cluster interpretation.</p>
+
+                        <div class="methods-grid">
+                            <figure class="method-shot">
+                                <img src="https://placehold.co/1600x900/0f172a/ffffff?text=PCA+Projection+of+Team+Profiles" alt="PCA projection plot showing NBA teams grouped by style" loading="lazy">
+                                <figcaption class="shot-caption">PCA projection: high-dimensional team metrics reduced to two interpretable principal components.</figcaption>
+                            </figure>
+
+                            <figure class="method-shot">
+                                <img src="https://placehold.co/1600x900/1e3a8a/ffffff?text=K-means+Cluster+Separation" alt="K-means cluster scatter plot showing team group separation" loading="lazy">
+                                <figcaption class="shot-caption">Cluster map: unsupervised grouping reveals distinct offensive and defensive identity bands.</figcaption>
+                            </figure>
+
+                            <figure class="method-shot">
+                                <img src="https://placehold.co/1600x900/334155/ffffff?text=Feature+Importance+by+Cluster" alt="Feature profile chart comparing key stats across cluster groups" loading="lazy">
+                                <figcaption class="shot-caption">Feature profile comparison: each cluster is translated into tactical characteristics for decision support.</figcaption>
+                            </figure>
+                        </div>
+                    </article>
+
+                    <article class="case-section">
+                        <h2 class="text-3xl serif">Key Takeaways</h2>
+                        <ul class="takeaway-list text-lg">
+                            <li>A lower-dimensional PCA representation made cluster boundaries more stable and easier to explain to non-technical stakeholders.</li>
+                            <li>The pipeline design improved iteration speed by allowing partial reruns via checkpoints instead of full dataset rebuilds.</li>
+                            <li>Combining quantitative output with labeled tactical archetypes made the analysis more actionable than raw model metrics alone.</li>
+                        </ul>
+
+                        <div class="case-footer-actions">
+                            <a href="projects.html" class="btn btn-accent">Explore More Projects</a>
+                            <a href="index.html#contact" class="btn btn-outline">Discuss a Similar Build</a>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="hub-card" aria-label="Project hub links">
+                    <h2 class="text-2xl serif hub-title">Project Hub</h2>
+                    <p class="text-secondary">Everything in one place for recruiters, collaborators, and technical reviewers.</p>
+
+                    <div class="hub-links">
+                        <a class="btn btn-secondary hub-link" href="https://github.com/xqzv" target="_blank" rel="noopener noreferrer">Code: GitHub <span aria-hidden="true">-></span></a>
+                        <a class="btn btn-secondary hub-link" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">Live Demo: Hugging Face <span aria-hidden="true">-></span></a>
+                        <a class="btn btn-secondary hub-link" href="https://medium.com/" target="_blank" rel="noopener noreferrer">Deep Dive: Medium <span aria-hidden="true">-></span></a>
+                        <a class="btn btn-secondary hub-link" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">Social Proof: LinkedIn <span aria-hidden="true">-></span></a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-xl bg-deep-charcoal text-white">
+        <div class="container">
+            <div class="text-center">
+                <p class="text-secondary">&copy; <span id="current-year">2025</span> Mark Kuriy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/dark-mode.js" defer></script>
+    <script src="js/portfolio.js" defer></script>
+</body>
+</html>
