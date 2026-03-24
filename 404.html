@@ -54,8 +54,18 @@
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            z-index: 20;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 0;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            background: rgba(250, 250, 251, 0.95);
+            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        }
+
+        .dark-mode .nav {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .error-main {
@@ -204,11 +214,10 @@
         <main id="main-content" class="error-main">
             <div class="container">
                 <section class="error-panel">
-                    <p class="text-sm text-secondary mb-sm">That route does not exist yet.</p>
                     <h1 class="error-code serif">404</h1>
-                    <h2 class="text-3xl serif error-title">Wrong pass, right team.</h2>
+                    <h2 class="text-3xl serif error-title">It&rsquo;s not a wrong turn, it&rsquo;s an exploration.</h2>
                     <p class="text-lg error-copy">
-                        The page you requested could not be found. Use one of the shortcuts below to jump back into projects, case studies, or the main portfolio.
+                        You&rsquo;ve wandered off the mapped path, but there&rsquo;s still plenty to discover. Use the links below to continue exploring projects, insights, and the main portfolio.
                     </p>
 
                     <div class="quick-actions">
