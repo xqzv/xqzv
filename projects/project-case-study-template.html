@@ -23,8 +23,18 @@
     <link rel="stylesheet" href="/css/dark-mode.css" media="(prefers-color-scheme: dark)">
 
     <style>
+        .nav {
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            padding: 1rem 0;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
         .case-hero {
-            padding-top: 130px;
+            padding-top: 120px;
             padding-bottom: var(--space-2xl);
             position: relative;
             overflow: hidden;
