@@ -7,7 +7,7 @@ class SiteFooter extends HTMLElement {
             <footer class="py-xl bg-deep-charcoal text-white">
                 <div class="container">
                     <div class="text-center">
-                        <p class="text-secondary">&copy; <span id="current-year">${year}</span> Mark Kuriy. All rights reserved.</p>
+                        <p class="text-secondary">&copy; <span>${year}</span> Mark Kuriy. All rights reserved.</p>
                         <p class="text-sm text-tertiary mt-sm">
                             Simplicity is the ultimate sophistication
                         </p>
