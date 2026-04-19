@@ -34,11 +34,6 @@ function applyTheme(theme) {
     document.body.classList.add(isDark ? 'dark-mode' : 'light-mode');
 }
 
-// Function retained for compatibility if called elsewhere, but we handle nav styles purely via CSS classes now.
-function updateNavigationStyles(isDark) {
-    // Styles are intentionally omitted. CSS handles the light/dark modes.
-}
-
 // Initialize when DOM is ready or immediately if already loaded
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initDarkMode);
