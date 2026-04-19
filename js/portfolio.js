@@ -172,9 +172,11 @@ class PortfolioWebsite {
         const { mobileMenuButton, mobileMenuContainer } = this.dom;
         
         if (!mobileMenuButton || !mobileMenuContainer) return;
-        if (mobileMenuContainer.id) {
-            mobileMenuButton.setAttribute('aria-controls', mobileMenuContainer.id);
+        const fallbackMenuId = 'mobile-menu-panel';
+        if (!mobileMenuContainer.id) {
+            mobileMenuContainer.id = mobileMenuButton.getAttribute('aria-controls') || fallbackMenuId;
         }
+        mobileMenuButton.setAttribute('aria-controls', mobileMenuContainer.id);
         this.closeMobileMenu();
 
         // Toggle mobile menu
@@ -208,7 +210,7 @@ class PortfolioWebsite {
         
         mobileMenuContainer.classList.add('active');
         mobileMenuContainer.hidden = false;
-        mobileMenuContainer.removeAttribute('aria-hidden');
+        mobileMenuContainer.setAttribute('aria-hidden', 'false');
         mobileMenuContainer.removeAttribute('inert');
         mobileMenuButton.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';

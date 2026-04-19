@@ -48,7 +48,7 @@ class SiteHeader extends HTMLElement {
                 </div>
             </nav>
 
-            <div id="${mobileMenuId}" class="mobile-menu-container" hidden aria-hidden="true" inert>
+            <div id="${mobileMenuId}" class="mobile-menu-container" hidden inert>
                 <ul class="nav-links">
                     <li><a href="${aboutPath}" class="nav-link">About</a></li>
                     <li><a href="${skillsPath}" class="nav-link">Skills</a></li>
