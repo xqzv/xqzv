@@ -7,7 +7,7 @@
     <meta name="description" content="The page you're looking for doesn't exist. Return to Mark Kuriy's portfolio.">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -60,13 +60,23 @@
             padding: 1rem 0;
             backdrop-filter: blur(12px);
             transition: transform 0.3s ease, background-color 0.3s ease;
-            background: rgba(250, 250, 251, 0.95);
-            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+            background: var(--nav-bg-light, rgba(250, 250, 251, 0.95));
+            border-bottom: 1px solid var(--nav-border-light, rgba(30, 58, 138, 0.1));
         }
 
         .dark-mode .nav {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--nav-bg-dark, rgba(26, 26, 26, 0.95));
+            border-bottom: 1px solid var(--nav-border-dark, rgba(255, 255, 255, 0.1));
+        }
+        
+        .nav.scrolled {
+            background: rgba(250, 250, 251, 0.98);
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1);
+        }
+        
+        .dark-mode .nav.scrolled {
+            background: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
 
         .error-main {

@@ -7,7 +7,7 @@
     <meta name="description" content="Explore my portfolio of data science and machine learning projects. From customer churn prediction to sentiment analysis and beyond.">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
@@ -28,15 +28,15 @@
     <style>
         body { 
             font-family: 'Inter', system-ui, sans-serif; 
-            background-color: #FAFAFB;
-            color: #1a1a1a;
+            background-color: var(--bg-primary, #FAFAFB);
+            color: var(--text-primary, #1a1a1a);
             transition: background-color 0.3s ease, color 0.3s ease;
             margin: 0;
             line-height: 1.6;
         }
         body.dark-mode { 
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: var(--dark-bg-primary, #0F0F0F);
+            color: var(--dark-text-primary, #F5F5F5);
         }
         .nav { 
             position: fixed; 
@@ -47,12 +47,20 @@
             padding: 1rem 0;
             backdrop-filter: blur(12px);
             transition: transform 0.3s ease, background-color 0.3s ease;
-            background: rgba(250, 250, 251, 0.95);
-            border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+            background: var(--nav-bg-light, rgba(250, 250, 251, 0.95));
+            border-bottom: 1px solid var(--nav-border-light, rgba(30, 58, 138, 0.1));
         }
         .dark-mode .nav {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--nav-bg-dark, rgba(26, 26, 26, 0.95));
+            border-bottom: 1px solid var(--nav-border-dark, rgba(255, 255, 255, 0.1));
+        }
+        .nav.scrolled {
+            background: rgba(250, 250, 251, 0.98);
+            box-shadow: 0 2px 20px rgba(30, 58, 138, 0.1);
+        }
+        .dark-mode .nav.scrolled {
+            background: rgba(26, 26, 26, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
         .container {
             max-width: 1200px;
