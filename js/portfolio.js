@@ -122,7 +122,6 @@ class PortfolioWebsite {
     
     handleScroll() {
         const currentScrollY = window.scrollY;
-        const isDarkMode = document.body.classList.contains('dark-mode');
         
         if (currentScrollY > 100) {
             this.dom.nav.classList.add('scrolled');
