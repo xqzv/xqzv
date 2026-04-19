@@ -38,7 +38,6 @@ class PortfolioWebsite {
         this.setupMobileMenu();
         this.setupAnimations();
         this.setupAccessibility();
-        this.updateCopyrightYear();
     }
     
     throttle(callback, delay) {
@@ -251,15 +250,6 @@ class PortfolioWebsite {
         if (mobileMenuButton) {
             mobileMenuButton.setAttribute('aria-label', 'Toggle mobile menu');
             mobileMenuButton.setAttribute('aria-expanded', 'false');
-        }
-    }
-
-    updateCopyrightYear() {
-        // Dynamically update the copyright year to current year
-        const yearElement = document.getElementById('current-year');
-        if (yearElement) {
-            const currentYear = new Date().getFullYear();
-            yearElement.textContent = currentYear;
         }
     }
 
