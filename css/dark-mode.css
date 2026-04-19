@@ -150,3 +150,25 @@
 .dark-mode ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-400);
 }
+
+/* Contact Section Overrides */
+.dark-mode .contact-icon {
+    background: var(--dark-bg-tertiary);
+}
+
+.dark-mode #contact .card a,
+.dark-mode #contact .card a:visited {
+    color: var(--primary-400);
+}
+
+.dark-mode #contact .card a:hover {
+    color: var(--primary-300);
+}
+
+.dark-mode #contact .card a::after {
+    background-color: var(--primary-400);
+}
+
+.dark-mode #contact .card a:active {
+    color: var(--primary-500);
+}
