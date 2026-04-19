@@ -9,7 +9,7 @@
  *    - --neutral-100: #FAFAFB (Off-white - main backgrounds)
  *    - --neutral-200: #F1F5F9 (Soft gray - secondary backgrounds)  
  *    - --neutral-300: #E5E7EB (Light gray - borders and dividers)
- *    - --neutral-400: #9CA3AF (Medium gray - disabled states, placeholders)
+ *    - --neutral-400: #6B7280 (Medium gray - disabled states, placeholders)
  *    - --neutral-600: #4a4a4a (Dark gray - secondary text)
  *    - --neutral-800: #1a1a1a (Near black - primary text)
  *
@@ -34,8 +34,8 @@
  *   - --dark-bg-tertiary: #262626 (Hover states, badges, elements on cards)
  * - Brighter text:
  *   - --dark-text-primary: #F5F5F5 (Headings, primary content)
- *   - --dark-text-secondary: #B3B3B3 (Subtitles, secondary content)
- *   - --dark-text-tertiary: #737373 (Meta text, disabled states)
+ *     - --dark-text-secondary: #B3B3B3 (Subtitles, secondary content)
+ *     - --dark-text-tertiary: #9CA3AF (Meta text, disabled states)
  * - Distinct borders:
  *   - --dark-border: #404040
  *   - --dark-border-light: #2A2A2A

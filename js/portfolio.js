@@ -125,22 +125,9 @@ class PortfolioWebsite {
         const isDarkMode = document.body.classList.contains('dark-mode');
         
         if (currentScrollY > 100) {
-            const bgColor = isDarkMode ? 
-                'rgba(26, 26, 26, 0.98)' : 
-                'rgba(250, 250, 251, 0.98)';
-            const shadow = isDarkMode ? 
-                '0 2px 20px rgba(0, 0, 0, 0.2)' : 
-                '0 2px 20px rgba(30, 58, 138, 0.1)';
-                
-            this.dom.nav.style.background = bgColor;
-            this.dom.nav.style.boxShadow = shadow;
+            this.dom.nav.classList.add('scrolled');
         } else {
-            const bgColor = isDarkMode ? 
-                'rgba(26, 26, 26, 0.95)' : 
-                'rgba(250, 250, 251, 0.95)';
-                
-            this.dom.nav.style.background = bgColor;
-            this.dom.nav.style.boxShadow = 'none';
+            this.dom.nav.classList.remove('scrolled');
         }
 
         if (currentScrollY > this.state.lastScrollY && currentScrollY > 200) {
