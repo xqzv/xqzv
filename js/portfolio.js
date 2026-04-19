@@ -172,10 +172,9 @@ class PortfolioWebsite {
         const { mobileMenuButton, mobileMenuContainer } = this.dom;
         
         if (!mobileMenuButton || !mobileMenuContainer) return;
-        if (!mobileMenuContainer.id) {
-            mobileMenuContainer.id = 'mobile-menu-panel';
+        if (mobileMenuContainer.id) {
+            mobileMenuButton.setAttribute('aria-controls', mobileMenuContainer.id);
         }
-        mobileMenuButton.setAttribute('aria-controls', mobileMenuContainer.id);
         this.closeMobileMenu();
 
         // Toggle mobile menu

@@ -1,9 +1,5 @@
 class SiteHeader extends HTMLElement {
     connectedCallback() {
-        if (!this.style.display) {
-            this.style.display = 'block';
-        }
-
         const currentPath = window.location.pathname;
         const isHomePage = currentPath === '/' || currentPath === '/index.html';
         const mobileMenuId = 'mobile-menu-panel';
