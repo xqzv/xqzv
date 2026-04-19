@@ -34,8 +34,8 @@
  *   - --dark-bg-tertiary: #262626 (Hover states, badges, elements on cards)
  * - Brighter text:
  *   - --dark-text-primary: #F5F5F5 (Headings, primary content)
- *     - --dark-text-secondary: #B3B3B3 (Subtitles, secondary content)
- *     - --dark-text-tertiary: #9CA3AF (Meta text, disabled states)
+ *   - --dark-text-secondary: #B3B3B3 (Subtitles, secondary content)
+ *   - --dark-text-tertiary: #9CA3AF (Meta text, disabled states)
  * - Distinct borders:
  *   - --dark-border: #404040
  *   - --dark-border-light: #2A2A2A
