@@ -6,6 +6,7 @@ class SiteHeader extends HTMLElement {
 
         const currentPath = window.location.pathname;
         const isHomePage = currentPath === '/' || currentPath === '/index.html';
+        const mobileMenuId = 'mobile-menu-panel';
         
         // Define paths conditionally based on the current page to ensure proper navigation
         const aboutPath = isHomePage ? '#about' : '/index.html#about';
@@ -41,7 +42,7 @@ class SiteHeader extends HTMLElement {
                                 </svg>
                             </button>
                             
-                            <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false">
+                            <button class="mobile-menu" aria-label="Open mobile menu" aria-expanded="false" aria-controls="${mobileMenuId}">
                                 <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                                 </svg>
@@ -51,7 +52,7 @@ class SiteHeader extends HTMLElement {
                 </div>
             </nav>
 
-            <div class="mobile-menu-container">
+            <div id="${mobileMenuId}" class="mobile-menu-container" hidden aria-hidden="true" inert>
                 <ul class="nav-links">
                     <li><a href="${aboutPath}" class="nav-link">About</a></li>
                     <li><a href="${skillsPath}" class="nav-link">Skills</a></li>

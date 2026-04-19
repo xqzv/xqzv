@@ -172,6 +172,11 @@ class PortfolioWebsite {
         const { mobileMenuButton, mobileMenuContainer } = this.dom;
         
         if (!mobileMenuButton || !mobileMenuContainer) return;
+        if (!mobileMenuContainer.id) {
+            mobileMenuContainer.id = 'mobile-menu-panel';
+        }
+        mobileMenuButton.setAttribute('aria-controls', mobileMenuContainer.id);
+        this.closeMobileMenu();
 
         // Toggle mobile menu
         mobileMenuButton.addEventListener('click', () => {
@@ -203,6 +208,9 @@ class PortfolioWebsite {
         const { mobileMenuContainer, mobileMenuButton } = this.dom;
         
         mobileMenuContainer.classList.add('active');
+        mobileMenuContainer.hidden = false;
+        mobileMenuContainer.removeAttribute('aria-hidden');
+        mobileMenuContainer.removeAttribute('inert');
         mobileMenuButton.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     }
@@ -211,6 +219,9 @@ class PortfolioWebsite {
         const { mobileMenuContainer, mobileMenuButton } = this.dom;
         
         mobileMenuContainer.classList.remove('active');
+        mobileMenuContainer.hidden = true;
+        mobileMenuContainer.setAttribute('aria-hidden', 'true');
+        mobileMenuContainer.setAttribute('inert', '');
         mobileMenuButton.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     }
