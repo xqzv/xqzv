@@ -274,7 +274,7 @@ body.dark-mode .nav-link.active {
 }
 
 .stat-card.secondary .stat-number {
-    color: var(--primary-600);
+    color: var(--primary-400);
 }
 
 .stat-card.tertiary .stat-number {
