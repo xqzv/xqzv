@@ -127,6 +127,10 @@
 }
 
 /* Navigation */
+site-header {
+    display: block;
+}
+
 .nav {
     background: rgba(250, 250, 251, 0.95);
     border-bottom: 1px solid rgba(30, 58, 138, 0.1);
@@ -165,6 +169,11 @@
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-600);
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: var(--primary-300);
 }
 
 /* Mobile Menu */
