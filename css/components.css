@@ -171,6 +171,11 @@ site-header {
     color: var(--primary-600);
 }
 
+.dark-mode .nav-link:hover,
+.dark-mode .nav-link.active {
+    color: var(--primary-300) !important;
+}
+
 /* Mobile Menu */
 .mobile-menu {
     display: none;
