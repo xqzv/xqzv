@@ -179,6 +179,14 @@
     transition: color 0.2s ease;
 }
 
+.theme-toggle,
+.mobile-menu {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+}
+
 .mobile-menu:hover {
     color: var(--primary-600);
 }
@@ -374,6 +382,19 @@
 .lazy-load.loaded {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Contact Icons */
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--space-md);
+    transition: background-color 0.3s ease;
 }
 
 /* Contact Section Links - Modern UI/UX best practices */
