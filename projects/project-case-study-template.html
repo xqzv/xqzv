@@ -8,6 +8,21 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#1E3A8A" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#0F0F0F" media="(prefers-color-scheme: dark)">
+    <script>
+        (function () {
+            try {
+                var localTheme = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                var isDark = localTheme === 'dark' || (!localTheme && prefersDark);
+                var root = document.documentElement;
+                root.classList.remove('light-mode', 'dark-mode');
+                root.classList.add(isDark ? 'dark-mode' : 'light-mode');
+                root.style.backgroundColor = isDark ? '#0F0F0F' : '#FAFAFB';
+            } catch (e) {
+                // Ignore storage or media-query access failures during early theme initialization.
+            }
+        })();
+    </script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -225,6 +240,13 @@
     </style>
 </head>
 <body class="light-mode">
+    <script>
+        (function () {
+            var isDark = document.documentElement.classList.contains('dark-mode');
+            document.body.classList.remove('light-mode', 'dark-mode');
+            document.body.classList.add(isDark ? 'dark-mode' : 'light-mode');
+        })();
+    </script>
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <site-header></site-header>
