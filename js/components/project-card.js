@@ -23,7 +23,7 @@ class ProjectCard extends HTMLElement {
             this.removeAttribute('title');
         }
         const tagsRaw = this.getAttribute('tags') || '';
-        const link = this.sanitizeLink(this.getAttribute('link') || '#');
+        const link = this.sanitizeLink(this.getAttribute('link'));
         const linkText = this.getAttribute('link-text') || 'View Case Study';
         const category = this.getAttribute('category') || '';
 
