@@ -82,17 +82,6 @@
     <link rel="stylesheet" href="/css/dark-mode.css">
 </head>
 <body class="light-mode">
-    <script>
-        (function() {
-            try {
-                var localTheme = localStorage.getItem('theme');
-                var sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (localTheme === 'dark' || (!localTheme && sysTheme)) {
-                    document.body.classList.replace('light-mode', 'dark-mode');
-                }
-            } catch (e) {}
-        })();
-    </script>
     <!-- Accessibility skip link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
