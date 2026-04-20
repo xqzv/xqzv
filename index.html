@@ -191,77 +191,47 @@
             
             <div class="row-grid">
                 <!-- Project 1 -->
-                <article class="project-card lazy-load">
-                    <div class="project-header">
-                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
-                            <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
-                        </svg>
+                <custom-project-card
+                    title="Urban Crime Analytics & Geospatial Intelligence System"
+                    tags="Python, Pandas, Matplotlib, Geospatial Analysis"
+                    link="/case-studies/urban-crime-analytics"
+                >
+                    <svg slot="icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z"/>
+                    </svg>
+                    <div slot="description">
+                        Processed 4.7M+ arrest records from NYPD/LAPD datasets with advanced statistical analysis, temporal pattern recognition, and geospatial density mapping to identify population-crime correlations. Developed automated analytics pipeline delivering stakeholder-ready insights for urban planning and resource allocation through data standardization and visualization techniques.
                     </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">Matplotlib</span>
-                            <span class="project-tag">Geospatial Analysis</span>
-                        </div>
-                        <h3 class="text-2xl mb-sm">Urban Crime Analytics & Geospatial Intelligence System</h3>
-                        <p class="text-secondary mb-lg">
-                            Processed 4.7M+ arrest records from NYPD/LAPD datasets with advanced statistical analysis, temporal pattern recognition, and geospatial density mapping to identify population-crime correlations. Developed automated analytics pipeline delivering stakeholder-ready insights for urban planning and resource allocation through data standardization and visualization techniques.
-                        </p>
-                        <a href="/case-studies/urban-crime-analytics" class="btn btn-secondary" style="align-self: flex-start;">
-                            View Case Study
-                        </a>
-                    </div>
-                </article>
+                </custom-project-card>
 
                 <!-- Project 2 -->
-                <article class="project-card lazy-load">
-                    <div class="project-header">
-                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                <custom-project-card
+                    title="Financial Market Data Analytics Platform"
+                    tags="Python, RESTful APIs, Pandas, NumPy"
+                    link="/case-studies/financial-market-analytics"
+                >
+                    <svg slot="icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
                             <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
                         </svg>
+                    <div slot="description">
+                        Engineered automated financial data pipeline integrating EODHD API to analyze $1.2T+ S&P 500 ETF performance, calculating risk-adjusted returns and revealing 8.5% performance differential between weighting strategies. Applied quantitative analytics methods with real-time processing of 231 trading days, volatility modeling, and portfolio optimization insights for institutional investment decisions.
                     </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">RESTful APIs</span>
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">NumPy</span>
-                        </div>
-                        <h3 class="text-2xl mb-sm">Financial Market Data Analytics Platform</h3>
-                        <p class="text-secondary mb-lg">
-                            Engineered automated financial data pipeline integrating EODHD API to analyze $1.2T+ S&P 500 ETF performance, calculating risk-adjusted returns and revealing 8.5% performance differential between weighting strategies. Applied quantitative analytics methods with real-time processing of 231 trading days, volatility modeling, and portfolio optimization insights for institutional investment decisions.
-                        </p>
-                        <a href="/case-studies/financial-market-analytics" class="btn btn-secondary" style="align-self: flex-start;">
-                            View Case Study
-                        </a>
-                    </div>
-                </article>
+                </custom-project-card>
 
                 <!-- Project 3 -->
-                <article class="project-card lazy-load">
-                    <div class="project-header">
-                        <svg width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
+                <custom-project-card
+                    title="NBA Team Performance Analytics & ML Pipeline"
+                    tags="Python, Pandas, Scikit-learn, K-means"
+                    link="/case-studies/nba-performance-analytics"
+                >
+                    <svg slot="icon" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
                         </svg>
+                    <div slot="description">
+                        Built production-ready ML pipeline processing 300K+ NBA game records with automated web scraping, K-means clustering, and PCA analysis to identify team performance patterns and championship-winning strategies. Implemented scalable data engineering system with checkpoint recovery, statistical validation, and automated feature engineering for multi-dimensional sports analytics.
                     </div>
-                    <div class="project-content">
-                        <div class="project-meta">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Pandas</span>
-                            <span class="project-tag">Scikit-learn</span>
-                            <span class="project-tag">K-means</span>
-                        </div>
-                        <h3 class="text-2xl mb-sm">NBA Team Performance Analytics & ML Pipeline</h3>
-                        <p class="text-secondary mb-lg">
-                            Built production-ready ML pipeline processing 300K+ NBA game records with automated web scraping, K-means clustering, and PCA analysis to identify team performance patterns and championship-winning strategies. Implemented scalable data engineering system with checkpoint recovery, statistical validation, and automated feature engineering for multi-dimensional sports analytics.
-                        </p>
-                        <a href="/case-studies/nba-performance-analytics" class="btn btn-secondary" style="align-self: flex-start;">
-                            View Case Study
-                        </a>
-                    </div>
-                </article>
+                </custom-project-card>
             </div>
         </div>
     </section>
@@ -355,6 +325,7 @@
     <!-- JavaScript loading -->
     <script src="/js/components/header.js" defer></script>
     <script src="/js/components/footer.js" defer></script>
+    <script src="/js/components/project-card.js" defer></script>
     <script src="/js/dark-mode.js" defer></script>
     <script src="/js/portfolio.js" defer></script>
 </body>
