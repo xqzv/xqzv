@@ -1,6 +1,9 @@
 class ProjectCard extends HTMLElement {
     connectedCallback() {
-        const title = this.getAttribute('title') || '';
+        const title = this.getAttribute('heading') || this.getAttribute('title') || '';
+        if (this.hasAttribute('title')) {
+            this.removeAttribute('title');
+        }
         const tagsRaw = this.getAttribute('tags') || '';
         const link = this.getAttribute('link') || '#';
         const linkText = this.getAttribute('link-text') || 'View Case Study';
