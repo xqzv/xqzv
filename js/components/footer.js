@@ -4,7 +4,7 @@ class SiteFooter extends HTMLElement {
         const year = new Date().getFullYear();
         
         this.innerHTML = `
-            <footer class="py-xl bg-deep-charcoal text-white">
+            <footer class="py-xl bg-soft" style="border-top: 1px solid var(--border-color); transition: background-color 0.3s ease, border-color 0.3s ease;">
                 <div class="container">
                     <div class="text-center">
                         <p class="text-secondary">&copy; <span>${year}</span> Mark Kuriy. All rights reserved.</p>
