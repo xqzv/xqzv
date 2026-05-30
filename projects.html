@@ -322,8 +322,10 @@
 
                     // Filter projects
                     projectCards.forEach(card => {
+                        const parent = card.closest('custom-project-card') || card;
                         if (filter === 'all') {
                             card.style.display = 'flex';
+                            parent.style.display = '';
                             setTimeout(() => {
                                 card.classList.add('loaded');
                             }, 100);
@@ -331,11 +333,14 @@
                             const categories = card.getAttribute('data-category');
                             if (categories && categories.includes(filter)) {
                                 card.style.display = 'flex';
+                                parent.style.display = '';
                                 setTimeout(() => {
                                     card.classList.add('loaded');
+                                    card.classList.remove('filtered-out');
                                 }, 100);
                             } else {
                                 card.style.display = 'none';
+                                parent.style.display = 'none';
                             }
                         }
                     });
