@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /projects/README.md
+Disallow: /projects/project-case-study-template.html
+Allow: /
+
+Sitemap: https://xqzv.dev/sitemap.xml
